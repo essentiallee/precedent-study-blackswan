@@ -1,101 +1,190 @@
 # Black Swan Style Guide
 
-This style guide is based on the visual language of https://blackswan.support/, with a focus on editorial clarity, minimalism, and a calm, intellectual tone.
+Reference site: https://blackswan.support/
 
-## 1. Overall Character
-- The site feels conceptual, serious, and intentional.
-- Visual language is restrained rather than loud.
-- Content is presented as a thoughtful publication, not a commercial product site.
-- The mood is collaborative, research-driven, and community-oriented.
+This guide translates the visual system of the Black Swan website into rules for the precedent study. The design should feel like a sparse research interface: technical, direct, collective, and slightly raw. Avoid polished portfolio styling, soft gradients, decorative cards, and overly smooth brand language.
 
-## 2. Color Palette
-Use a restrained palette centered on the landing page red with dark text and minimal contrast.
+## 1. Design Character
 
-- Background: the same red used on the landing page
-- Primary text: dark charcoal or near-black
-- Secondary text: muted gray
-- Accent color: optional deep black or subtle dark green/olive, used sparingly
-- Avoid bright saturated colors unless used for emphasis in a very limited way
+- Treat the page as a research archive or digital noticeboard rather than a promotional site.
+- Use a monospaced typographic voice throughout.
+- Prefer hard edges, thin rules, visible structure, and simple divisions.
+- Let the design feel low-tech and intentional: black, white, grid, text, image, border.
+- Keep interaction states blunt and legible rather than animated or ornamental.
 
-Suggested palette:
-- Background: #C73A2F
-- Text: #111111
-- Muted text: #5C5C5C
-- Accent: #2F3A2F
+## 2. Typeface
 
-## 3. Typography
-Typography should feel clean, modern, and editorial.
+Use one primary typeface:
 
-- Primary typeface: a neutral sans-serif with strong readability
-- Secondary typeface: optional serif for emphasis, quotes, or section headers
-- Use generous line spacing for long-form text
-- Avoid overly decorative fonts
+- Primary: `Space Mono`
+- Source: Google Fonts
+- Weights: `400` regular and `700` bold
+- Fallback stack: `Space Mono, monospace`
 
-Recommended approach:
-- Headings: bold, compact, and confident
-- Body text: simple and readable
-- Navigation text: understated and consistent
+Recommended import:
 
-## 4. Layout and Spacing
-The layout should feel calm, spacious, and structured.
+```css
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+```
 
-- Use generous whitespace around sections
-- Keep content centered and easy to scan
-- Favor clear hierarchy over dense visual decoration
-- Use simple alignment and consistent margins
-- Content blocks should feel like parts of a publication rather than app-like cards
+Do not use Roboto, Helvetica, Arial, or a serif face for this project. The reference site’s identity depends on the mechanical rhythm of `Space Mono`.
 
-## 5. Grid and Structure
-- A simple, generous grid works well for the site’s tone
-- Use vertical rhythm to create a calm reading experience
-- Group related content in clearly separated sections
-- Keep page structures predictable and easy to navigate
+## 3. Typography Rules
 
-## 6. Navigation
-Navigation should be straightforward and unobtrusive.
+- Body text: `16px`, `400`, line-height around `1.3`.
+- Main byline or large intro text: `36px`, `400`, line-height `1.1`.
+- Mobile large text: reduce to about `26px`.
+- Small metadata, footer text, form notes: `12px`.
+- Headings: `16px`, `700`, no oversized hierarchy.
+- Use uppercase sparingly for labels such as section headers.
+- Letter spacing should stay normal. The reference uses monospaced density, not spaced-out luxury typography.
+- Word spacing may be slightly tightened for large text, around `-0.1em` to `-0.2em`, if it helps match the reference.
 
-- Keep links simple and minimal
-- Use low-contrast nav styling unless a link is active or hovered
-- Limit the number of prominent calls to action
-- Navigation should support discovery without overwhelming the page
+## 4. Core Color Palette
 
-## 7. Buttons and Calls to Action
-Buttons should feel quiet and considered.
+Use a strict black-and-white palette with one orange reference accent.
 
-- Use simple rectangular or text-link styling
-- Keep borders minimal or use subtle contrast
-- Avoid flashy gradients or overly rounded shapes
-- CTA labels should be clear and direct, such as “Subscribe,” “Read more,” or “View all”
+```css
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --signal-orange: #ff3d00;
+  --white-hover-30: rgba(255, 255, 255, 0.3);
+  --white-hover-20: rgba(255, 255, 255, 0.2);
+  --white-field-70: rgba(255, 255, 255, 0.7);
+}
+```
 
-## 8. Imagery and Visual Treatment
-The site appears to favor a thoughtful, low-key visual presence.
+Primary colors:
 
-- Use photography or illustrations that feel documentary or artistic
-- Avoid over-stylized graphics
-- Favor textures, grain, or subtle atmosphere when needed
-- Images should support the content rather than dominate it
+- Page/background black: `#000000`
+- Light text on dark sections: `#ffffff`
+- Dark text on light sections: `#000000`
+- Browser/theme accent from reference site: `#ff3d00`
 
-## 9. Content Style
-Tone should be calm, intelligent, and human.
+Interaction colors:
 
-- Write with clarity and precision
-- Use concise paragraphs and short sections
-- Let the content breathe
-- Prefer thoughtful language over promotional language
+- Hover on dark/light bordered blocks: `rgba(255, 255, 255, 0.3)`
+- Secondary hover: `rgba(255, 255, 255, 0.2)`
+- Form field fill: `rgba(255, 255, 255, 0.7)`
 
-## 10. Accessibility
-- Maintain high contrast between text and background
-- Use readable font sizes and spacing
-- Ensure links and buttons are clearly identifiable
-- Keep the interface simple and navigable for all users
+Avoid the current red background palette. Do not use `#C73A2F`, charcoal gray text, muted gray body text, olive accents, gradients, or soft neutral palettes.
 
-## 11. Design Direction Summary
-If this site were translated into a practical design system, the core principles would be:
-- Minimal
-- Editorial
-- Calm
-- Intentional
-- Readable
-- Community-centered
+## 5. Backgrounds
 
-This approach works especially well for arts, culture, research, and collective-organizing contexts.
+- Use `#000000` as the primary page background.
+- The reference site layers a subtle dust texture over black. If a texture is available, apply it lightly as a repeating background image.
+- White or light panels may be used inside the page, but they should be divided with black borders and remain visually plain.
+- Do not use drop shadows, blurred color fields, rounded background panels, or decorative gradients.
+
+Reference pattern:
+
+```css
+body {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'Space Mono', monospace;
+}
+```
+
+## 6. Layout
+
+- Use a centered content width around `900px`.
+- Cap the layout at `95vw` so it nearly fills narrow screens.
+- Use simple vertical stacking.
+- Divide major sections with `1px solid` borders.
+- Use `20px` as the base padding unit.
+- Use `40px` for larger desktop section padding.
+- On mobile, collapse larger padding back to `20px`.
+
+Recommended layout constants:
+
+```css
+--content-width: 900px;
+--content-max: 95vw;
+--space-sm: 20px;
+--space-md: 40px;
+--rule: 1px solid currentColor;
+```
+
+## 7. Borders and Structure
+
+The reference site relies on rules instead of cards.
+
+- Use `1px solid #000000` on light sections.
+- Use `1px solid #ffffff` on dark sections.
+- Place borders between rows, calls to action, footer areas, and feed items.
+- Avoid rounded corners. Border radius should be `0`.
+- Avoid nested card layouts.
+
+## 8. Links and Buttons
+
+Links and buttons should look structural, not decorative.
+
+- Links inherit the surrounding text color.
+- Default links may have no underline.
+- Hover states can use underline or a pale white overlay.
+- Buttons should be rectangular, full-width when placed in columns, and `50px` tall when used as form or CTA controls.
+- Button typography should remain `Space Mono`, `16px`.
+- Button border: `1px solid #000000` on light sections or `1px solid #ffffff` on dark sections.
+- Button background: transparent by default.
+- Button hover: `rgba(255, 255, 255, 0.3)`.
+
+Do not use pill buttons, rounded CTAs, gradients, or colored button fills.
+
+## 9. Research Feed Pattern
+
+For source lists, bibliography sections, or archive entries, use the reference site’s research feed logic:
+
+- Dark background: `#000000`
+- Text: `#ffffff`
+- Each row has `border-bottom: 1px solid #ffffff`
+- Row padding: `20px`
+- Row layout: title on the left, metadata/date/source on the right
+- Hover: `background: rgba(255, 255, 255, 0.3)`
+- Metadata can be `12px`
+- Hide secondary metadata on small screens if space is tight
+
+This pattern is a strong fit for the precedent study’s source lists.
+
+## 10. Forms and Inputs
+
+If a subscription, contact, or filter form appears:
+
+- Input height: `50px`
+- Input font: `Space Mono`, `16px`
+- Input background: `rgba(255, 255, 255, 0.7)`
+- Input border: `none` or `1px solid currentColor`, depending on context
+- Submit button: transparent background, `1px solid #000000`, square corners
+- Placeholder and helper text: `12px`
+
+## 11. Images
+
+- Use images plainly, centered, and without decorative frames.
+- Header images can be constrained to `max-height: 50vh`.
+- Do not crop images aggressively unless the crop serves the archive layout.
+- Avoid soft overlays, dark blur effects, and image cards.
+
+## 12. Responsive Behavior
+
+- At widths below `800px`, stack two-column sections into one column.
+- Reduce large intro/byline text from `36px` to about `26px`.
+- Reduce desktop padding from `40px` to `20px`.
+- Keep borders intact so the site still feels gridded on mobile.
+- Hide nonessential right-side metadata in feed rows when needed.
+
+## 13. Application to This Precedent Study
+
+For this repository, the current visual system should be adjusted as follows:
+
+- Replace `Roboto` with `Space Mono`.
+- Replace the red background `#C73A2F` with black `#000000`.
+- Use white text on the main dark background.
+- Remove muted gray body text. Use white, black, and opacity-based hover fills instead.
+- Treat source sections as research-feed rows with white borders.
+- Keep headings small, bold, and monospaced rather than large and editorial.
+- Use square, bordered controls and links if new navigation or CTAs are added.
+
+## 14. Summary
+
+The Black Swan reference style is not minimal in the polished Swiss sense. It is minimal in an infrastructural sense: monospaced type, black-and-white contrast, visible borders, hard divisions, archival rows, and direct interaction states. The precedent study should adopt that structure closely.
