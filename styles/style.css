@@ -148,6 +148,22 @@ main {
     margin-bottom: 0;
 }
 
+.aesthetics-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    padding: var(--space-sm);
+    border-top: var(--rule);
+}
+
+.aesthetics-grid img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border: 1px solid var(--black);
+    background: var(--white);
+}
+
 .source-list {
     margin: 0;
     padding: 0;
@@ -226,9 +242,14 @@ main {
     .section h2,
     .content-section h3,
     .section p,
+    .aesthetics-grid,
     .source-list a,
     .section a,
     .section-title {
         padding: var(--space-sm);
+    }
+
+    .aesthetics-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
