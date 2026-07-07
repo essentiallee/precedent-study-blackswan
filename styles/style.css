@@ -124,6 +124,30 @@ main {
     padding-top: 0;
 }
 
+.content-section h3 {
+    padding: var(--space-sm) var(--space-sm) 0;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.content-section h3:not(:first-of-type) {
+    border-top: var(--rule);
+}
+
+.note-list {
+    max-width: 70ch;
+    margin: 0;
+    padding: var(--space-sm) var(--space-sm) var(--space-sm) calc(var(--space-sm) * 2);
+}
+
+.note-list li {
+    margin-bottom: 6px;
+}
+
+.note-list li:last-child {
+    margin-bottom: 0;
+}
+
 .source-list {
     margin: 0;
     padding: 0;
@@ -200,6 +224,7 @@ main {
     }
 
     .section h2,
+    .content-section h3,
     .section p,
     .source-list a,
     .section a,
